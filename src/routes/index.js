@@ -1,5 +1,3 @@
-// RUTAS - AGREGADOR DE RUTAS
-
 import { Router } from 'express';
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';

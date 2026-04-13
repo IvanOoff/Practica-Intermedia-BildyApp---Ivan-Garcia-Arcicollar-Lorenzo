@@ -1,5 +1,3 @@
-// MIDDLEWARE DE VALIDACION ZOD
-
 import mongoose from 'mongoose';
 import { ZodError } from 'zod';
 

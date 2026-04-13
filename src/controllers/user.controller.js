@@ -1,4 +1,4 @@
-// CONTROLADOR DEL USUARIO
+// CONTROLADOR DEL USUARIO.
 import User from '../models/User.js';
 import Company from '../models/Company.js';
 import RefreshToken from '../models/RefreshToken.js';
@@ -11,7 +11,7 @@ const generateValidationCode = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
-// REGISTRO DE USUARIO
+// REGISTRO DEL USUARIO->
 export const registerCtrl = async (req, res, next) => {
   try {
     const { email, password, name, lastName } = req.body;

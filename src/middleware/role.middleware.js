@@ -1,4 +1,4 @@
-// MIDDLEWARE DE AUTORIZACION POR ROLES
+// MIDDLEWARE DE AUTORIZACION POR ROLES.
 
 import { AppError } from '../utils/AppError.js';
 

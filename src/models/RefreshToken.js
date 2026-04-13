@@ -1,5 +1,3 @@
-// MODELO DE REFRESH TOKEN
-
 import mongoose from 'mongoose';
 
 const refreshTokenSchema = new mongoose.Schema({

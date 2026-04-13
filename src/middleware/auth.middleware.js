@@ -1,5 +1,3 @@
-// MIDDLEWARE DE VERIFICACION JWT
-
 import User from '../models/User.js';
 import { verifyToken } from '../utils/handleJwt.js';
 import { AppError } from '../utils/AppError.js';

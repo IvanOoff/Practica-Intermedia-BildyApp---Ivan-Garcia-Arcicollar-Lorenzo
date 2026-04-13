@@ -1,6 +1,3 @@
-// BILDYAPP API - ENDPOINTS
-// USA REST CLIENT (VS CODE) O THUNDER CLIENT
-
 @baseUrl = http://localhost:3000/api/user
 
 // =========================================
