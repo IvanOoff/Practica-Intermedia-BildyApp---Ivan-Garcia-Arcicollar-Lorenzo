@@ -1,4 +1,5 @@
 # BildyApp API
+Ivan Garcia-Arcicollar
 
 API REST para gestión de usuarios y compañías de la aplicación BildyApp.
 
