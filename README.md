@@ -96,3 +96,27 @@ curl -X POST http://localhost:3000/api/user/login \
   -H "Content-Type: application/json" \
   -d '{"email":"test@test.com","password":"TestPass123"}'
 ```
+
+## Estructura del proyecto
+
+```
+bildyapp-api/
+├── src/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   ├── validators/
+│   ├── app.js
+│   └── index.js
+├── uploads/
+├── .env
+├── .env.example
+├── .gitignore
+├── package.json
+├── requests.http
+└── README.md
+```
