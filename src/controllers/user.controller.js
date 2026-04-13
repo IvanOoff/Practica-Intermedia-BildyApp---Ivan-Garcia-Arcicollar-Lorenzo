@@ -9,9 +9,10 @@ import userEvents from '../services/notification.service.js';
 
 const generateValidationCode = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
+
 };
 
-// REGISTRO DEL USUARIO->
+// REGISTRO DEL USUARIO ->
 export const registerCtrl = async (req, res, next) => {
   try {
     const { email, password, name, lastName } = req.body;
@@ -55,7 +56,7 @@ export const registerCtrl = async (req, res, next) => {
   }
 };
 
-// VALIDACION DE EMAIL
+// VALIDACION DEL EMAIL ->
 export const validateCtrl = async (req, res, next) => {
   try {
     const { code } = req.body;
@@ -89,7 +90,7 @@ export const validateCtrl = async (req, res, next) => {
   }
 };
 
-// LOGIN DE USUARIO
+// LOGIN DEL USUARIO ->
 export const loginCtrl = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -126,7 +127,7 @@ export const loginCtrl = async (req, res, next) => {
   }
 };
 
-// REFRESH TOKEN
+// REFRESH TOKEN -> 
 export const refreshCtrl = async (req, res, next) => {
   try {
     const { refreshToken } = req.body;
@@ -144,7 +145,7 @@ export const refreshCtrl = async (req, res, next) => {
   }
 };
 
-// LOGOUT DE USUARIO
+// LOGOUT DE USUARIO ->
 export const logoutCtrl = async (req, res, next) => {
   try {
     const { refreshToken } = req.body;
@@ -160,7 +161,7 @@ export const logoutCtrl = async (req, res, next) => {
   }
 };
 
-// OBTENER USUARIO AUTENTICADO
+// OBTENER USUARIO AUTENTICADO -> 
 export const meCtrl = async (req, res, next) => {
   try {
     const user = await User.findById(req.user._id).populate({
@@ -176,7 +177,7 @@ export const meCtrl = async (req, res, next) => {
   }
 };
 
-// ACTUALIZAR PERFIL (ONBOARDING)
+// ACTUALIZAMOS EL PERFIL ->
 export const updateProfileCtrl = async (req, res, next) => {
   try {
     const user = await User.findByIdAndUpdate(
@@ -190,7 +191,7 @@ export const updateProfileCtrl = async (req, res, next) => {
   }
 };
 
-// CAMBIAR CONTRASENA
+// CAMBIO DE CONTRASEÑA ->
 export const changePasswordCtrl = async (req, res, next) => {
   try {
     const { currentPassword, newPassword } = req.body;
@@ -207,7 +208,7 @@ export const changePasswordCtrl = async (req, res, next) => {
   }
 };
 
-// ELIMINAR USUARIO (SOFT/HARD DELETE)
+// ELIMINAMOS EL USUARIO ->
 export const deleteCtrl = async (req, res, next) => {
   try {
     const soft = req.query.soft !== 'false';
@@ -228,7 +229,7 @@ export const deleteCtrl = async (req, res, next) => {
   }
 };
 
-// CREAR O UNIRSE A COMPAÑIA
+// CREAR O UNIRSE A COMPAÑIA ->
 export const createCompanyCtrl = async (req, res, next) => {
   try {
     const userId = req.user._id;
@@ -240,6 +241,7 @@ export const createCompanyCtrl = async (req, res, next) => {
     const existingOwner = await Company.findOne({ owner: userId });
     if (existingOwner) {
       throw AppError.conflict('Ya eres propietario de una empresa');
+
     }
     if (isFreelance) {
       const companyData = {
@@ -282,7 +284,7 @@ export const createCompanyCtrl = async (req, res, next) => {
   }
 };
 
-// UNIRSE A COMPAÑIA EXISTENTE
+// SI QUIERE UNIRSE A UNA COMPAÑIA EXISTENTE ->
 export const joinCompanyCtrl = async (req, res, next) => {
   try {
     const userId = req.user._id;
@@ -306,7 +308,7 @@ export const joinCompanyCtrl = async (req, res, next) => {
   }
 };
 
-// ACTUALIZAR COMPAÑIA
+// ACTUALIZAMOS COMPAÑIA ->
 export const updateCompanyCtrl = async (req, res, next) => {
   try {
     const userId = req.user._id;
@@ -331,7 +333,7 @@ export const updateCompanyCtrl = async (req, res, next) => {
   }
 };
 
-// SUBIR LOGO DE COMPAÑIA
+// SUBIMOS LOGO DE COMPAÑIA ->
 export const uploadLogoCtrl = async (req, res, next) => {
   try {
     const userId = req.user._id;
@@ -358,7 +360,7 @@ export const uploadLogoCtrl = async (req, res, next) => {
   }
 };
 
-// OBTENER COMPAÑIA
+// OBTENEMOS LA COMPAÑIA ->
 export const getCompanyCtrl = async (req, res, next) => {
   try {
     const userId = req.user._id;
@@ -374,7 +376,7 @@ export const getCompanyCtrl = async (req, res, next) => {
   }
 };
 
-// INVITAR USUARIO A COMPAÑIA
+// INVITAMOS AL USUARIO A LA COMPAÑIA ->
 export const inviteUserCtrl = async (req, res, next) => {
   try {
     const { email, name, lastName, password } = req.body;
@@ -403,4 +405,5 @@ export const inviteUserCtrl = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+  
 };

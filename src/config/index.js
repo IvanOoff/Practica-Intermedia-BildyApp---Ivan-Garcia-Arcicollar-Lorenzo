@@ -15,7 +15,7 @@ const config = {
 
 const dbConnect = async () => {
   if (!config.dbUri) {
-    console.error('ERROR: DB_URI no esta definida en .env');
+    console.error('ERROR');
     process.exit(1);
   }
 
@@ -29,12 +29,12 @@ const dbConnect = async () => {
 };
 
 mongoose.connection.on('disconnected', () => {
-  console.warn('ADVERTENCIA: Desconectado de MongoDB');
+  console.warn('Desconectado de MongoDB....');
 });
 
 process.on('SIGINT', async () => {
   await mongoose.connection.close();
-  console.log('CONEXION A MONGODB CERRADA');
+  console.log('CONEXION A MONGODB CERRADA!!');
   process.exit(0);
 });
 

@@ -1,5 +1,3 @@
-// CONFIGURACION DE MULTER PARA SUBIDA DE ARCHIVOS
-
 import multer from 'multer';
 import { extname, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,7 +28,7 @@ const fileFilter = (req, file, cb) => {
   if (allowedMimes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Tipo de archivo no permitido'), false);
+    cb(new Error('ARCHIVO NO PERMITIDO'), false);
   }
 };
 
@@ -38,7 +36,7 @@ const uploadMiddleware = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 5 * 1024 * 1024,
+    fileSize: 5* 1024 * 1024,
     files: 1
   }
 });

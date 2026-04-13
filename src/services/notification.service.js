@@ -1,6 +1,3 @@
-// EMISOR DE EVENTOS PARA EL CICLO DE VIDA DEL USUARIO
-// EVENTOS: user.registered, user.validated, user.deleted, user.invited
-
 import { EventEmitter } from 'node:events';
 
 class UserEventEmitter extends EventEmitter {}
